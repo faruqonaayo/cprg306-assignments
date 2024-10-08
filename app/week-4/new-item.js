@@ -4,20 +4,16 @@ import { useState } from "react";
 function NewItem({ name, category }) {
   const [quantity, setQuantity] = useState(1);
   function increment() {
-    setQuantity((c) => {
-      setQuantity(c + 1);
-    });
+    setQuantity((c) => c + 1);
   }
 
   function decrement() {
-    setQuantity((c) => {
-      setQuantity(c - 1);
-    });
+    setQuantity((c) => c - 1);
   }
   return (
     <div className="text-lg m-5 border-2 border-blue-400 rounded w-fit p-3 cursor-pointer">
       <div className="font-semibold text-xl ">
-        Name: <span className="italic text-yellow-400">{name}</span>
+        New Item: <span className="italic text-yellow-400">{name}</span>
       </div>
       <div className="font-semibold text-xl ">
         Quantity: <span className="italic text-blue-400">{quantity}</span>
