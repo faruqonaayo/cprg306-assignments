@@ -24,7 +24,7 @@ function NewItem({ name, category }) {
 
       <div className="flex justify-between">
         <button
-          class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 px-4 rounded"
+          className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-1 px-4 rounded"
           onClick={decrement}
           disabled={quantity === 1 ? true : false}
         >
