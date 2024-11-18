@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemList from "./item-list.js";
 import NewItem from "./new-item";
 import itemsData from "./item.json";
-import MealIdeas from "./meal-ideas.js"; 
+import MealIdeas from "./meal-ideas.js";
+import { useUserAuth } from "../_utils/auth-context.js";
 
 export default function Page() {
+  const { user } = useUserAuth();
   const [items, setItems] = useState([...itemsData]);
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -19,6 +21,10 @@ export default function Page() {
   function handleItemSelect(nameAndEmoji) {
     const name = nameAndEmoji.split(", ")[0];
     setSelectedItem(name);
+  }
+
+  if (!user) {
+    return (window.location.href = "/week-9");
   }
   return (
     <main className="flex ">
